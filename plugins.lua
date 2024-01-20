@@ -4,7 +4,6 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
   -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -60,6 +59,65 @@ local plugins = {
   --   "mg979/vim-visual-multi",
   --   lazy = false,
   -- }
+
+  {
+    'toppair/reach.nvim',
+    lazy = false,
+    config = function()
+      require('reach').setup({
+        notifications = true
+      })
+    end
+  },
+  {
+    "folke/noice.nvim",
+    lazy = false,
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("noice").setup({
+        messages = {
+          -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+          -- This is a current Neovim limitation.
+          enabled = true,              -- enables the Noice messages UI
+          view = "notify",             -- default view for messages
+          view_error = "notify",       -- view for errors
+          view_warn = "notify",        -- view for warnings
+          view_history = "messages",   -- view for :messages
+          view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+        }
+      })
+    end
+  },
+  {
+    "kelly-lin/ranger.nvim",
+    config = function()
+      require("ranger-nvim").setup({
+        --        replace_netrw = true
+      })
+    end,
+  },
+  {
+    "phaazon/hop.nvim",
+    event = "BufRead",
+    lazy=false,
+    config = function()
+      require("hop").setup()
+      -- vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
+      -- vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+    end,
+  },
+
 }
 
 return plugins

@@ -3,8 +3,11 @@ local M = {}
 
 M.general = {
   n = {
-    ["<leader>w"] = { ":w <CR>", "save quickly" , opts = { nowait = true } },
+    ["<leader>jw"] = {"<cmd> HopWord <CR>", "jump to word", opts = {nowait = true}},
+    ["<leader>jb"] = {"<cmd> ReachOpen buffers <CR>", "jump to buffer", opts = {nowait = true}},
+    ["<leader>jm"] = {"<cmd> ReachOpen marks <CR>", "jump to buffer", opts = {nowait = true}},
     ["<leader>s"] = { "<cmd> w <CR>", "save quickly" , opts = { nowait = true } },
+    ["<leader>b"] = { "<cmd> ReachOpen buffers <CR>", "switch buffers" , opts = { nowait = true } },
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     --  format with conform
     ["<leader>fm"] = {
@@ -22,10 +25,19 @@ M.general = {
   },
   v = {
     [">"] = { ">gv", "indent"},
+    ["J"] = {
+      "<cmd> move '>+1<CR>gv-gv",
+      "move selected block up"
+    },
+    ["K"] = {
+      "<cmd> move '<-2<CR>gv-gv",
+      "move selected block down"
+    }
   },
 }
 
 -- more keybinds!
+
 -- use alt-num to do quick switch
 for i = 1, 9, 1 do
   vim.keymap.set("n", string.format("<A-%s>", i), function()
