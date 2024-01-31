@@ -117,7 +117,14 @@ local plugins = {
       -- vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
     end,
   },
-
+  {
+        "kdheepak/lazygit.nvim",
+      lazy=false,
+        -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+  },
 }
 
 return plugins
