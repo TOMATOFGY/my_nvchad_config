@@ -13,6 +13,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- 每新加一个语言服务器,都需要在这里手动设置开启.
 
 lspconfig.pyright.setup {
   on_attach = on_attach,

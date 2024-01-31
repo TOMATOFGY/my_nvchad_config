@@ -6,6 +6,9 @@ M.general = {
     ["<leader>gg"] = {"<cmd> LazyGit <CR>", "open LazyGit", opts = {nowait = true}},
     ["<leader>jw"] = {"<cmd> HopWord <CR>", "jump to word", opts = {nowait = true}},
     ["<leader><leader>w"] = {"<cmd> HopWord <CR>", "jump to word", opts = {nowait = true}},
+    ["<leader><leader>r"] = {function()
+      require("ranger-nvim").open(true)
+    end, "Open ranger", opts = {nowait = true}},
     ["<leader><leader>q"] = {"<cmd> q <CR>", "quit", opts = {nowait = true}},
     ["<leader>jb"] = {"<cmd> ReachOpen buffers <CR>", "jump to buffer", opts = {nowait = true}},
     ["<leader>jm"] = {"<cmd> ReachOpen marks <CR>", "jump to buffer", opts = {nowait = true}},
