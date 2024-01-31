@@ -3,6 +3,7 @@ local M = {}
 
 M.general = {
   n = {
+    ["<leader>ls"] = {"<cmd> Outline <CR>", "open symbols outline", opts = {nowait = true}},
     ["<leader>gg"] = {"<cmd> LazyGit <CR>", "open LazyGit", opts = {nowait = true}},
     ["<leader>jw"] = {"<cmd> HopWord <CR>", "jump to word", opts = {nowait = true}},
     ["<leader><leader>w"] = {"<cmd> HopWord <CR>", "jump to word", opts = {nowait = true}},
@@ -11,7 +12,7 @@ M.general = {
     end, "Open ranger", opts = {nowait = true}},
     ["<leader><leader>q"] = {"<cmd> q <CR>", "quit", opts = {nowait = true}},
     ["<leader>jb"] = {"<cmd> ReachOpen buffers <CR>", "jump to buffer", opts = {nowait = true}},
-    ["<leader>jm"] = {"<cmd> ReachOpen marks <CR>", "jump to buffer", opts = {nowait = true}},
+    ["<leader>jm"] = {"<cmd> ReachOpen marks <CR>", "jump to marks", opts = {nowait = true}},
     ["<leader>s"] = { "<cmd> w <CR>", "save quickly" , opts = { nowait = true } },
     ["<leader>b"] = { "<cmd> ReachOpen buffers <CR>", "switch buffers" , opts = { nowait = true } },
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
@@ -25,7 +26,7 @@ M.general = {
 
     ["<A-e>"] = {
        "<cmd> NvimTreeFocus <CR>" ,
-  "Also Focus nvimtree"
+      "Also Focus nvimtree"
     }
 
   },
