@@ -137,6 +137,7 @@ local plugins = {
     }
   end,
   },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 , lazy=false} -- pufan 推荐的主题
 }
 
 return plugins

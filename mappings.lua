@@ -3,10 +3,19 @@ local M = {}
 
 M.general = {
   n = {
+    -- ["<leader>q"] = {"<cmd>q<cr>", "normal :q"}, -- 这个设置还是太强了
+    ["<leader>lq"] = {
+      function()
+        vim.diagnostic.setloclist()
+      end,
+      "Diagnostic setloclist",
+    },
+    ["s"] = {"<ESC>", "replace original s to esc" }, -- s stand for subplace one char
     ["<leader>ls"] = {"<cmd> Outline <CR>", "open symbols outline", opts = {nowait = true}},
     ["<leader>gg"] = {"<cmd> LazyGit <CR>", "open LazyGit", opts = {nowait = true}},
     ["<leader>jw"] = {"<cmd> HopWord <CR>", "jump to word", opts = {nowait = true}},
     ["<leader><leader>w"] = {"<cmd> HopWord <CR>", "jump to word", opts = {nowait = true}},
+    ["<leader>ww"] = {"<cmd> HopWord <CR>", "jump to word", opts = {nowait = true}},
     ["<leader><leader>r"] = {function()
       require("ranger-nvim").open(true)
     end, "Open ranger", opts = {nowait = true}},
@@ -45,6 +54,7 @@ M.general = {
 
 -- more keybinds!
 
+-- 也许应该要根据当前平台的不同,设置不同的快捷键方式
 -- use alt-num to do quick switch
 for i = 1, 9, 1 do
   vim.keymap.set("n", string.format("<A-%s>", i), function()
