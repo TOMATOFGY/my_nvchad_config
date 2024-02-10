@@ -59,4 +59,11 @@ M.nvimtree = {
   },
 }
 
+
+M.whichkey = {
+    window = {
+      border = "single", -- none, single, double, shadow
+  }
+}
+
 return M

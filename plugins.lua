@@ -137,7 +137,37 @@ local plugins = {
     }
   end,
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 , lazy=false} -- pufan 推荐的主题
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 , lazy=false}, -- pufan 推荐的主题
+  -- https://github.com/rasulomaroff/reactive.nvim
+  { 'rasulomaroff/reactive.nvim', lazy=false, config = function()
+    require('reactive').setup {
+  builtin = {
+    cursorline = true,
+    cursor = true,
+    modemsg = true
+  }
 }
+  end},
+  {
+  "sourcegraph/sg.nvim",
+  dependencies = { "nvim-lua/plenary.nvim", --[[ "nvim-telescope/telescope.nvim ]] },
+},
+  {
+    "folke/which-key.nvim",
+    keys = { "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "v", "g" },
+    init = function()
+      require("core.utils").load_mappings "whichkey"
+      vim.o.timeout = true
+      vim.o.timeoutlen = 100
+    end,
+    cmd = "WhichKey",
+    opts = overrides.whichkey,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "whichkey")
+      require("which-key").setup(opts)
+    end,
+  },
+}
+
 
 return plugins
