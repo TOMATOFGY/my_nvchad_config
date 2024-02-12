@@ -3,6 +3,15 @@ local M = {}
 
 M.general = {
   n = {
+    ["<leader>fd"] = {function ()
+      vim.cmd "Telescope lsp_document_symbols"
+      vim.cmd "stopinsert" -- Telescope lsp_dynamic_workspace_symbols 执行完成之后会默认进入 insert mode
+      -- TODO
+    end, "find symbols in document"},
+    ["<leader>fs"] = {function ()
+      vim.cmd "Telescope lsp_dynamic_workspace_symbols"
+      vim.cmd "stopinsert" -- Telescope lsp_dynamic_workspace_symbols 执行完成之后会默认进入 insert mode
+    end, "find symbols in workspac", opts = {nowait = true}},
     -- ["<leader>q"] = {"<cmd>q<cr>", "normal :q"}, -- 这个设置还是太强了
     ["<leader>lq"] = {
       function()
@@ -40,6 +49,7 @@ M.general = {
 
   },
   v = {
+    ["s"] = {"<ESC>", "replace original s to esc" }, -- s stand for subplace one char
     [">"] = { ">gv", "indent"},
     ["J"] = {
       "<cmd> move '>+1<CR>gv-gv",
@@ -54,7 +64,7 @@ M.general = {
 
 -- more keybinds!
 
--- 也许应该要根据当前平台的不同,设置不同的快捷键方式
+-- 也许应该要根据当前平台的不同,设置不同的快捷键方式 -- 2024-02-12 20:00:55 原来是alacritty 一开始没有将 option 映射成 meta
 -- use alt-num to do quick switch
 for i = 1, 9, 1 do
   vim.keymap.set("n", string.format("<A-%s>", i), function()
