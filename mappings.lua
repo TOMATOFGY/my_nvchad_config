@@ -3,6 +3,7 @@ local M = {}
 
 M.general = {
   n = {
+    ["<leader><leader><leader>"] = {"<space>", "end of whichkey", opts = {nowait = true}},
     ["<leader>fd"] = {function ()
       vim.cmd "Telescope lsp_document_symbols"
       vim.cmd "stopinsert" -- Telescope lsp_dynamic_workspace_symbols 执行完成之后会默认进入 insert mode
