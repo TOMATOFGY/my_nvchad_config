@@ -12,6 +12,7 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "rust"
   },
   indent = {
     enable = true,
@@ -39,7 +40,10 @@ M.mason = {
     "clang-format",
 
     -- python stuff
-    "pyright"
+    "pyright",
+
+    -- rust
+    "rust-analyzer"
   },
 }
 
@@ -59,7 +63,7 @@ M.nvimtree = {
   },
 }
 
-
+-- https://github.com/folke/which-key.nvim
 M.whichkey = {
     window = {
       border = "single", -- none, single, double, shadow
