@@ -3,12 +3,17 @@ local M = {}
 
 M.general = {
   n = {
-    ["<leader><leader><leader>"] = {"<space>", "end of whichkey", opts = {nowait = true}},
-    ["<leader>fd"] = {function ()
-      vim.cmd "Telescope lsp_document_symbols"
+    ["<leader>fr"] = {function ()
+      vim.cmd "Telescope lsp_references"
       vim.cmd "stopinsert" -- Telescope lsp_dynamic_workspace_symbols 执行完成之后会默认进入 insert mode
       -- TODO
-    end, "find symbols in document"},
+    end, "find references"},
+    ["<leader><leader><leader>"] = {"<space>", "end of whichkey", opts = {nowait = true}},
+    ["<leader>fd"] = {function ()
+      vim.cmd "Telescope lsp_definitions"
+      vim.cmd "stopinsert" -- Telescope lsp_dynamic_workspace_symbols 执行完成之后会默认进入 insert mode
+      -- TODO
+    end, "find definitions"},
     ["<leader>fs"] = {function ()
       vim.cmd "Telescope lsp_dynamic_workspace_symbols"
       vim.cmd "stopinsert" -- Telescope lsp_dynamic_workspace_symbols 执行完成之后会默认进入 insert mode
