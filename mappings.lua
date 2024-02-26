@@ -8,6 +8,7 @@ M.general = {
       vim.cmd "stopinsert" -- Telescope lsp_dynamic_workspace_symbols 执行完成之后会默认进入 insert mode
       -- TODO
     end, "find references"},
+    ["<leader><leader><leader>"] = {"<space>", "end of whichkey", opts = {nowait = true}},
     ["<leader>fd"] = {function ()
       vim.cmd "Telescope lsp_definitions"
       vim.cmd "stopinsert" -- Telescope lsp_dynamic_workspace_symbols 执行完成之后会默认进入 insert mode
