@@ -194,6 +194,15 @@ local plugins = {
 
   end,
 },
+  {
+    "m-demare/hlargs.nvim",
+    lazy = false,
+    config = function()
+      require('hlargs').setup {
+        color = '#ef9062',
+      }
+    end
+  }
 }
 
 
